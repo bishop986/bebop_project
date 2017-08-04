@@ -91,6 +91,7 @@ void odom_fix::update_odom( const ::nav_msgs::OdometryConstPtr &msg)
 }
 
 // here to update error information from qr_code position
+// TODO there should be a self-dim type to get qrcode id
 void odom_fix::update_error( const ::geometry_msgs::PoseStampedConstPtr &msg)
 {
 	if (! this->initialized_) {
