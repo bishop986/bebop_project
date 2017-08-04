@@ -160,14 +160,31 @@ bool BebopPathFollower::computeVelocityCommand( ::geometry_msgs::Twist& res)
 
 void BebopPathFollower::limitTwist( ::geometry_msgs::Twist& twist_vel)
 {
-	if ( ::std::fabs(twist_vel.linear.x) > this->p_max_linear_vel)
-	  twist_vel.linear.x = twist_vel.linear.x * this->p_scale_factor_;
+	double line_overlimit = ::std::sqrt( twist_vel.linear.x * twist_vel.linear.x +
+									    twist_vel.linear.y * twist_vel.linear.y) / 
+									    this->p_max_linear_vel;
 
-	if ( ::std::fabs(twist_vel.linear.y) > this->p_max_linear_vel)
-	  twist_vel.linear.y = twist_vel.linear.y * this->p_scale_factor_;
+	double line_underlimit = this->p_min_linear_vel / 
+							 ::std::sqrt( twist_vel.linear.x * twist_vel.linear.x + 
+										  twist_vel.linear.y * twist_vel.linear.y);
 
-	if ( ::std::fabs(twist_vel.angular.z) > this->p_max_rotation_vel)
-	  twist_vel.angular.z = twist_vel.angular.z * this->p_scale_factor_;
+	if ( line_overlimit > 1.0) {
+		twist_vel.linear.x /= line_overlimit;
+		twist_vel.linear.y /= line_overlimit;
+	}
+
+	if ( line_underlimit > 1.0) {
+		twist_vel.linear.x /= line_underlimit;
+		twist_vel.linear.y /= line_underlimit;
+	}
+
+	if ( ::std::fabs( twist_vel.angular.z) > this->p_max_rotation_vel) {
+		twist_vel.angular.z = this->p_max_rotation_vel;
+	} else if ( ::std::fabs( twist_vel.angular.z) < this->p_min_rotation_vel) {
+		twist_vel.angular.z = this->p_min_rotation_vel;
+	}
+	
+
 }
 	  
 
