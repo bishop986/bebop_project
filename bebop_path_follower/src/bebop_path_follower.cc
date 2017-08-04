@@ -29,6 +29,7 @@ void BebopPathFollower::initialize( ::tf::TransformListener* tf)
 
 	node_private.param( "odom_topic", this->p_drone_frame, ::std::string("base_link"));
 
+	// this factor is to configure the cmd_vel
 	node_private.param( "scale_factor", this->p_scale_factor_, 0.1);
 
 	::tf::Stamped< ::tf::Pose> drone_pose;
