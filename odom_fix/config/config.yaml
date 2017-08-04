@@ -1,0 +1,9 @@
+picture_topic: 'qr_position'
+odom_topic: '/bebop/odom'
+odom_fix_topic: '/bebop/odom_fix'
+odom_frame: 'odom'
+
+qrcode_seq: [1,2,]
+
+qr_code_1: {'x': 1.1, 'y': 2.2, 'z': 3.3}
+qr_code_2: {'x': 0.1, 'y': 23.1, 'z': 33.2}

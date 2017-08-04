@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node pkg="odom_fix" name="odom_fix_node" type="odom_fix_node" output="screen">
+		<rosparam file="$(find odom_fix)/config/config.yaml" command="load"/>
+	</node>
+</launch>
