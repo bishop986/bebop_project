@@ -66,7 +66,7 @@ void BebopPathFollower::initialize( ::tf::TransformListener* tf)
 			ROS_WARN("waiting for tf from %s to %s", this->p_odom_frame.c_str(), this->p_drone_frame.c_str());
 			frame_exsist = false;
 		}
-		sleep(10);
+		sleep(1);
 	}
 
 	this->odom_sub_ = 
