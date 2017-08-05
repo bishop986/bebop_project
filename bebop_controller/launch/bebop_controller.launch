@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node pkg="bebop_controller" name="bebop_controller" type="bebop_controller_node" output="screen">
+		<rosparam file="$(find bebop_controller)/config/config.yaml" command="load" />
+	</node>
+</launch>
+

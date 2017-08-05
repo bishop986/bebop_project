@@ -1,0 +1,18 @@
+max_linear_vel: 0.6
+min_linear_vel: 0.2
+
+max_rotation_vel: 0.6
+min_rotation_vel: 0.3
+
+torlerance_trans: 0.1
+torlerance_rot: 0.2
+torlerance_timeout: 0.3
+in_place_trans: 0.04
+in_place_rotation: 0.02
+
+odom_topic: '/bebop/odom'
+dodom_frame: 'odom'
+drone_frame: 'base_link'
+
+scale_factor: 0.05
+

@@ -35,6 +35,8 @@ class BebopPathFollower {
 		double p_torlerance_trans_;
 		double p_torlerance_timeout_;
 		double p_scale_factor_;
+		double p_in_place_trans;
+		double p_in_place_rotation;
 
 		::std::string p_odom_frame;
 		::std::string p_odom_topic;
